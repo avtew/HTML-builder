@@ -8,5 +8,5 @@
     for (let file of files) {
       fs.copyFile(path.join(src, file.name), path.join(dest, file.name));
     }
-  })
-}())
+  });
+}());
