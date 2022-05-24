@@ -4,6 +4,11 @@
   const src = path.join(__dirname, 'files');
   const dest = path.join(__dirname, 'files-copy');
   fs.mkdir(dest, { recursive: true });
+  fs.readdir(dest, {withFileTypes: true}).then (files => {
+    for (let file of files) {
+      fs.unlink(path.join(dest, file.name));
+    }
+  });
   fs.readdir(src, {withFileTypes: true}).then (files => {
     for (let file of files) {
       fs.copyFile(path.join(src, file.name), path.join(dest, file.name));
