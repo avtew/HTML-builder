@@ -8,10 +8,10 @@
     for (let file of files) {
       fs.unlink(path.join(dest, file.name));
     }
-  });
-  fs.readdir(src, {withFileTypes: true}).then (files => {
-    for (let file of files) {
-      fs.copyFile(path.join(src, file.name), path.join(dest, file.name));
-    }
+    fs.readdir(src, {withFileTypes: true}).then (files => {
+      for (let file of files) {
+        fs.copyFile(path.join(src, file.name), path.join(dest, file.name));
+      }
+    });
   });
 }());
